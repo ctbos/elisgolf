@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Register — The Eli's Charity Golf Tournament</title>
+<meta name="description" content="Register for the Eli's Charity Golf Tournament. Sign up as an individual player or a full foursome and support Connecticut Children's." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-brand" href="index.html" aria-label="Eli's Charity Golf Tournament — Home">
+      <img src="assets/elis-logo-cream.png" alt="Eli's" />
+      <span class="tag">Charity<br />Golf Classic</span>
+    </a>
+    <input type="checkbox" id="navToggle" class="nav-toggle" />
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sponsors.html">Sponsors</a></li>
+      <li><a href="register.html" class="active">Register</a></li>
+      <li class="nav-cta"><a href="register.html" class="btn btn-primary">Register Now</a></li>
+    </ul>
+    <label for="navToggle" class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></label>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="ph dark"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      <p class="eyebrow on-green center">Register to Play</p>
+      <h1>Reserve your spot<br />on the course.</h1>
+      <p class="lead">Fill out the form below, then complete your payment to lock in your place. We can't wait to see you out there &mdash; all for the kids of Connecticut Children's.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REGISTRATION ===== -->
+<section class="section" id="register">
+  <div class="container">
+
+    <!-- STEP 1 — DETAILS -->
+    <div class="reg-layout" id="step-details">
+
+      <!-- FORM -->
+      <form class="form-card" id="regForm" action="#" method="post" novalidate>
+
+        <div class="form-section">
+          <p class="form-legend">Step 1</p>
+          <h3>Your team</h3>
+
+          <div class="field">
+            <label for="player1">Primary player name <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" type="text" id="player1" name="player1_name" autocomplete="name" placeholder="Full name" required />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="player2">Player 2 name <span class="opt">(optional)</span></label>
+              <input class="input" type="text" id="player2" name="player2_name" placeholder="Full name" />
+            </div>
+            <div class="field">
+              <label for="player3">Player 3 name <span class="opt">(optional)</span></label>
+              <input class="input" type="text" id="player3" name="player3_name" placeholder="Full name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="player4">Player 4 name <span class="opt">(optional)</span></label>
+            <input class="input" type="text" id="player4" name="player4_name" placeholder="Full name" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <p class="form-legend">Step 2</p>
+          <h3>Contact details</h3>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(000) 000-0000" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="confirm-banner">
+          <span>Your spot isn't confirmed until payment is received. After you submit, you'll choose <strong>Individual</strong> or <strong>Foursome</strong> and pay securely.</span>
+        </div>
+
+        <div class="form-section" style="margin-top:26px">
+          <button type="submit" class="btn btn-green btn-lg btn-block">Continue to Payment &rarr;</button>
+        </div>
+
+      </form>
+
+      <!-- HOW IT WORKS -->
+      <aside class="pay-rail">
+        <div class="how-card">
+          <h3>How it works</h3>
+          <ol class="how-list">
+            <li><span class="how-n">1</span><div><strong>Tell us who's playing</strong><span>Add the primary player, any teammates, and your contact details.</span></div></li>
+            <li><span class="how-n">2</span><div><strong>Choose &amp; pay</strong><span>Pick Individual or Full Foursome and check out securely with Square.</span></div></li>
+            <li><span class="how-n">3</span><div><strong>You're in</strong><span>We'll email your confirmation and everything you need for the day.</span></div></li>
+          </ol>
+        </div>
+
+        <p class="pay-secure">Secured by Square checkout</p>
+
+        <div class="confirm-banner" style="margin-top:22px">
+          <span>Questions about your registration? Email <a href="mailto:golf@elisrg.com" class="inline-link">golf@elisrg.com</a> and we'll help you out.</span>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- STEP 2 — PAYMENT (revealed after the form is submitted) -->
+    <div class="pay-screen" id="step-payment" hidden>
+      <button type="button" class="back-link" id="backToDetails">&larr; Back to your details</button>
+      <div class="pay-screen-head center">
+        <p class="eyebrow center">Almost there</p>
+        <h2>Choose your registration &amp; pay</h2>
+        <p class="lead maxw center" id="paySummary">Select how you'd like to register below. Your spot is reserved the moment payment is received.</p>
+      </div>
+
+      <div class="grid grid-2 payopt-grid">
+        <div class="payopt">
+          <p class="tag-pill">Individual</p>
+          <h3 class="payopt-name">Individual Player</h3>
+          <p class="payopt-desc">One spot in a foursome &mdash; we'll group you with other players.</p>
+          <div class="payopt-amt">$275<span>/ player</span></div>
+          <a class="btn btn-primary btn-lg btn-block pay-btn" data-package="Individual" href="https://square.link/u/7vLMuAqd">Pay $275 &mdash; Individual</a>
+        </div>
+        <div class="payopt featured">
+          <p class="tag-pill featured-pill">Foursome</p>
+          <h3 class="payopt-name">Full Foursome</h3>
+          <p class="payopt-desc">Reserve all four spots for your team of four.</p>
+          <div class="payopt-amt">$1,100<span>/ team of 4</span></div>
+          <a class="btn btn-primary btn-lg btn-block pay-btn" data-package="Foursome" href="https://square.link/u/mdgqNuqt">Pay $1,100 &mdash; Foursome</a>
+        </div>
+      </div>
+
+      <p class="pay-secure center">Secured by Square checkout &middot; Registration is not confirmed until payment is received.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <img src="assets/elis-logo-cream.png" alt="Eli's" />
+      <p>The Eli's Charity Golf Tournament is hosted each year by Eli's Restaurant Group to support the kids and families of Connecticut Children's.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#details">Event Details</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:golf@elisrg.com">golf@elisrg.com</a></li>
+      </ul>
+      <span class="cause-charity-label" style="display:block;margin:18px 0 8px;color:rgba(255,255,255,.5)">Benefiting</span>
+      <img class="charity-logo footer-charity" src="assets/ct-childrens-white.svg" alt="Connecticut Children's" />
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Eli's Restaurant Group. All rights reserved.</span>
+    <span>Registration is not confirmed until payment is received.</span>
+  </div>
+</footer>
+
+<script>
+/* Registration flow: form details -> payment screen (choose Individual / Foursome).
+   Submissions are logged to a Google Sheet via a Google Apps Script web app.
+   SETUP: paste your deployed Apps Script web app URL into SCRIPT_URL below. */
+(function(){
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0aRWDi1ZMIbZnfpb32GcOiEb6eju6jvH-QfdKjLQ7AtvHNAssUDeaWvpW_SuypvA3Zw/exec';
+
+  var form     = document.getElementById('regForm');
+  var details  = document.getElementById('step-details');
+  var payment  = document.getElementById('step-payment');
+  var back     = document.getElementById('backToDetails');
+  var summary  = document.getElementById('paySummary');
+  if(!form || !details || !payment) return;
+
+  function scrollToY(el){
+    var nav = document.querySelector('.nav');
+    var offset = (nav ? nav.offsetHeight : 0) + 24;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+
+  function postToSheet(data){
+    if(!SCRIPT_URL) return Promise.resolve();
+    var params = new URLSearchParams(data);
+    return fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params })
+      .catch(function(){ /* never block the user on a logging failure */ });
+  }
+
+  function formData(){
+    return {
+      event_type:   'registration',
+      player1_name: document.getElementById('player1').value.trim(),
+      player2_name: document.getElementById('player2').value.trim(),
+      player3_name: document.getElementById('player3').value.trim(),
+      player4_name: document.getElementById('player4').value.trim(),
+      email:        document.getElementById('email').value.trim(),
+      phone:        document.getElementById('phone').value.trim(),
+      page_url:     window.location.href
+    };
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;       // enforce required fields
+
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Saving your details\u2026';
+
+    function showPayment(){
+      btn.disabled = false;
+      btn.textContent = label;
+      var first = (document.getElementById('player1').value || '').trim().split(' ')[0];
+      if(first){
+        summary.textContent = 'Thanks, ' + first + "! Pick how you'd like to register below \u2014 your spot is reserved the moment payment is received.";
+      }
+      details.hidden = true;
+      payment.hidden = false;
+      scrollToY(payment);
+    }
+
+    // Log to the sheet, but show payment after 2.5s no matter what.
+    var done = false;
+    function once(){ if(!done){ done = true; showPayment(); } }
+    postToSheet(formData()).then(once);
+    setTimeout(once, 2500);
+  });
+
+  // Record which package was chosen before heading to Square checkout.
+  document.querySelectorAll('.pay-btn').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(!SCRIPT_URL) return;
+      var d = formData();
+      d.event_type = 'package_selected';
+      d.package = a.getAttribute('data-package') || '';
+      var params = new URLSearchParams(d);
+      if(navigator.sendBeacon){
+        navigator.sendBeacon(SCRIPT_URL, params);
+      } else {
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params, keepalive: true }).catch(function(){});
+      }
+    });
+  });
+
+  if(back){
+    back.addEventListener('click', function(){
+      payment.hidden = true;
+      details.hidden = false;
+      scrollToY(details);
+    });
+  }
+})();
+</script>
+</body>
+</html>

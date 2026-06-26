@@ -188,10 +188,9 @@
 
 <script>
 /* Registration flow: form details -> payment screen (choose Individual / Foursome).
-   Submissions are logged to a Google Sheet via a Google Apps Script web app.
-   SETUP: paste your deployed Apps Script web app URL into SCRIPT_URL below. */
+   Submissions are sent to Formspree which emails golf@elisrg.com. */
 (function(){
-  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0aRWDi1ZMIbZnfpb32GcOiEb6eju6jvH-QfdKjLQ7AtvHNAssUDeaWvpW_SuypvA3Zw/exec';
+  var SCRIPT_URL = 'https://formspree.io/f/xeebgerr';
 
   var form     = document.getElementById('regForm');
   var details  = document.getElementById('step-details');
@@ -209,9 +208,11 @@
 
   function postToSheet(data){
     if(!SCRIPT_URL) return Promise.resolve();
-    var params = new URLSearchParams(data);
-    return fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params })
-      .catch(function(){ /* never block the user on a logging failure */ });
+    return fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(function(){ /* never block the user on a logging failure */ });
   }
 
   function formData(){
@@ -263,11 +264,12 @@
       d.event_type = 'package_selected';
       d.package = a.getAttribute('data-package') || '';
       var params = new URLSearchParams(d);
-      if(navigator.sendBeacon){
-        navigator.sendBeacon(SCRIPT_URL, params);
-      } else {
-        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params, keepalive: true }).catch(function(){});
-      }
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(d),
+        keepalive: true
+      }).catch(function(){});
     });
   });
 
